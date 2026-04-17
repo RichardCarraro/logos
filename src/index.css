@@ -1,0 +1,51 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+@import "tailwindcss";
+
+@theme {
+  --font-sans: "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+  --font-serif: "Georgia", serif;
+
+  --color-prof-bg: #FAF9F6;
+  --color-prof-sidebar: #FFFFFF;
+  --color-prof-primary: #4A6741;
+  --color-prof-accent: #D4AF37;
+  --color-prof-text: #2C2C2C;
+  --color-prof-muted: #6B7280;
+  --color-prof-border: #E5E7EB;
+  
+  --shadow-prof: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -1px rgba(0, 0, 0, 0.03);
+}
+
+@layer base {
+  body {
+    @apply bg-prof-bg text-prof-text font-sans antialiased selection:bg-prof-accent/30;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif text-prof-text;
+  }
+}
+
+.prof-card {
+  @apply bg-white rounded-2xl p-6 border border-prof-border shadow-prof;
+}
+
+.prof-btn {
+  @apply bg-prof-primary text-white rounded-lg px-6 py-3 font-bold transition-all hover:opacity-95 active:scale-95 disabled:opacity-50;
+}
+
+.prof-input {
+  @apply border-2 border-prof-border rounded-lg px-4 py-2 outline-none focus:border-prof-primary transition-all;
+}
+
+.perspective-1000 {
+  perspective: 1000px;
+}
+
+.backface-hidden {
+  backface-visibility: hidden;
+}
+
+.rotate-y-180 {
+  transform: rotateY(180deg);
+}
