@@ -420,14 +420,34 @@ function LessonDetailScreen({ lessonId }: { lessonId: string }) {
           </div>
 
           {/* Sections */}
-          <div className="grid grid-cols-1 gap-8">
+          <div className="grid grid-cols-1 gap-12">
             {lesson.sections.map((section, idx) => (
               <div key={idx} className="space-y-4">
                 <h3 className="text-xs uppercase font-bold text-prof-accent tracking-[0.2em]">{section.title}</h3>
-                <p className="text-prof-text leading-relaxed whitespace-pre-line">{section.content}</p>
+                <div className="text-prof-text leading-relaxed space-y-4 whitespace-pre-line text-justify">
+                  {section.content}
+                </div>
               </div>
             ))}
           </div>
+
+          {/* Curiosities */}
+          {lesson.curiosities && lesson.curiosities.length > 0 && (
+            <div className="bg-[#fdfdf7] p-8 rounded-2xl border border-[#ececcb] space-y-4">
+              <h3 className="text-[10px] uppercase font-bold text-[#8a8a4d] tracking-[0.2em] flex items-center gap-2">
+                <Sparkles size={14} />
+                Curiosidades e Fatos
+              </h3>
+              <ul className="space-y-4">
+                {lesson.curiosities.map((item, idx) => (
+                  <li key={idx} className="flex gap-3 text-sm text-prof-muted leading-relaxed">
+                    <span className="text-prof-accent font-bold">•</span>
+                    {item}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          )}
 
           {/* Quiz */}
           <div className="pt-12 border-t border-prof-border space-y-8">

@@ -25,6 +25,7 @@ export interface Lesson {
     ref: string;
   };
   sections: LessonSection[];
+  curiosities: string[];
   quiz: {
     question: string;
     options: string[];
