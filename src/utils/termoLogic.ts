@@ -99,10 +99,17 @@ export function getShareText(
       const row2 = emojiGrids[1][i] || '⬜⬜⬜⬜⬜';
       visualGrid += `${row1}  ${row2}\n`;
     }
-  } else {
-    // Quarteto grouping
-    visualGrid = '[grid 1]  [grid 2]\n[grid 3]  [grid 4]';
+  } else if (mode === 'quarteto') {
+    const rows = Math.max(...emojiGrids.map(g => g.length));
+    for (let i = 0; i < rows; i++) {
+      const row1 = emojiGrids[0][i] || '⬜⬜⬜⬜⬜';
+      const row2 = emojiGrids[1][i] || '⬜⬜⬜⬜⬜';
+      const row3 = emojiGrids[2][i] || '⬜⬜⬜⬜⬜';
+      const row4 = emojiGrids[3][i] || '⬜⬜⬜⬜⬜';
+      visualGrid += `${row1}  ${row2}\n${row3}  ${row4}\n`;
+    }
   }
 
   return `Termo Bíblico ${MODE_CONFIG[mode].label} #${dayNumber}\n\n${visualGrid}\n\n${score}/${maxAttempts}`;
 }
+

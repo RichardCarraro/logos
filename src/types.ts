@@ -26,9 +26,11 @@ export interface Lesson {
   };
   sections: LessonSection[];
   curiosities: string[];
+  /** Quiz questions for the lesson */
   quiz: {
     question: string;
     options: string[];
+    /** Index of the correct option (0-based) */
     correctIndex: number;
   }[];
 }
